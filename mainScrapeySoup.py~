@@ -1,0 +1,32 @@
+""" This project is based on using a html parser to scrape data from SSRN profiles.
+One way is to us a html parser (Beautiful Soup in this example).
+Another way is regular expressions and brute force - which proved too difficult.
+"""
+# import necessary packages
+#from bs4 import BeautifulSoup as soup
+#from urllib.request import Request, urlopen
+#import requests
+#import re
+import json
+import csv
+from scrapeySoup import getSSRN
+import time
+
+
+author_soup = []
+
+with open('SSRNidList.csv', mode = 'r') as SSRNids:
+    SSRNlist = csv.DictReader(SSRNids)
+
+    for item in SSRNlist:
+        for key,value in item.items():
+            if key == 'SSRNidValue':
+                author_soup.append(value)
+
+print(author_soup)
+
+for author in author_soup:
+    soup_page = "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=" + author
+    print(getSSRN(soup_page))
+    print('-------------------------')
+    time.sleep(5)

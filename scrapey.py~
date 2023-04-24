@@ -1,0 +1,22 @@
+""" This file is a sample of two ways to go about getting started with web scraping.
+One way is to us a html parser (Beautiful Soup in this example).
+Another way is regular expressions and brute force.
+"""
+# import necessary packages
+import urllib.request
+import requests
+import re
+import json
+import csv
+
+# This is the regular expressions method
+def regular_exp():
+    webpage = input("""What is the URL for the list of publications to scrape?
+pressing enter with no URL will default to https://www.theregreview.org/archive """)
+    if not webpage:
+        webpage = "https://www.theregreview.org/archive/"
+
+    print(f'You will be scraping {webpage}')
+    return webpage
+
+regular_exp()
