@@ -13,6 +13,7 @@ This will create a list object of all IDs in your spreadsheet and create a list 
 The results will create 2 files:
 1. SSRNData.json
 - You should save a copy of this as 'previousSSRNData.json' for the next part of the process
+- After saving a copy as 
 
 2. ssrn_data.csv
 - This is a more human readable version of all of the data that was collected. You can use this to verify that you have captured what has posted.
