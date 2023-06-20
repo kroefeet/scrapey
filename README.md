@@ -38,3 +38,7 @@ Now run python3 check_ssrn.py
 This will match publication ids with the last revision date. If this combination matches in the two JSON files, nothing happens. If there is a identifier + revision date combination that exists on the most recent JSON file (SSRNData.json) but not on previousSSRNData.json, then it will be added to a file called 'review_new_SSRN.csv'
 
 This file (review_new_SSRN.csv) should contain items that have either changed or are new since the last time you ran this process.
+
+### Clean up
+- You should save a copy of SSRNData.json as 'previousSSRNData.json' for the next time your run this process
+- After saving a copy as 'previousSSRNData.json' delete the SSRNData.json in preparation for the next time you run the script (you probably forgot to do this if you are getting a JSON Decoding Error when running check_ssrn.py)
