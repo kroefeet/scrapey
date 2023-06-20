@@ -12,8 +12,6 @@ This will create a list object of all IDs in your spreadsheet and create a list 
 
 The results will create 2 files:
 1. SSRNData.json
-- You should save a copy of this as 'previousSSRNData.json' for the next part of the process
-- After saving a copy as 'previousSSRNData.json' delete the SSRNData.json in preparation for the next time you run the script (you probably forgot to do this if you are getting a JSON Decoding Error when running check_ssrn.py)
 
 2. ssrn_data.csv
 - This is a more human readable version of all of the data that was collected. You can use this to verify that you have captured what has posted.
@@ -29,3 +27,7 @@ Now run python3 check_ssrn.py
 This will match publication ids with the last revision date. If this combination matches in the two JSON files, nothing happens. If there is a identifier + revision date combination that exists on the most recent JSON file (SSRNData.json) but not on previousSSRNData.json, then it will be added to a file called 'review_new_SSRN.csv'
 
 This file (review_new_SSRN.csv) should contain items that have either changed or are new since the last time you ran this process.
+
+### Clean up
+- You should save a copy of SSRNData.json as 'previousSSRNData.json' for the next time your run this process
+- After saving a copy as 'previousSSRNData.json' delete the SSRNData.json in preparation for the next time you run the script (you probably forgot to do this if you are getting a JSON Decoding Error when running check_ssrn.py)
