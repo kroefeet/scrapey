@@ -32,7 +32,7 @@ for author in author_soup:
     ssrn_final.extend(incoming_ssrn)
     
     print('-------------------------')
-    time.sleep(5)
+    time.sleep(75)
 
 print(ssrn_final)
 # Append the results to a JSON file

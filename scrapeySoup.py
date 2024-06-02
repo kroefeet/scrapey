@@ -17,12 +17,22 @@ import csv
 
 def getSSRN(author):
     url =  "https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=" + author
-    request_site = Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    f = urlopen(request_site)
-    soup_page_html = str(f.read())
-    f.close
+    headers={"User-Agent": "Mozilla/5.0"}
+    
+    request_url = Request(url, headers=headers)
+    print(request_url)
+    
+    soup_page_html = urlopen(request_url).read()
+    #request_url.close
+    
+    #if request_url.status_code == 429:
+    #    print("Too many requests from server, retrying in 30 minutes")
+    #    time.sleep(1800)
+    
+
 
     page_soup = soup(soup_page_html, 'html.parser')
+    print(page_soup)
 
     results = page_soup.find(id="scholarly-papers")
 
@@ -115,3 +125,5 @@ def getSSRN(author):
         incoming_ssrn.append({"SSRN Abstract URL":ssrn_abstract_url, "SSRN Article id":article_id, "Article Title":article_title, "Article Citation":article_citation, "Number of pages":article_numPages, "Posted date": formatted_postDate, "Last Revised":formatted_revisionDate, "Authors":auth_affil, "SSRN Downloads":ssrn_downloads, "SSRN Article Rank":ssrn_article_rank, "SSRN Citations":ssrn_citations, "Keywords":article_keywords})
 
     return incoming_ssrn
+
+#getSSRN('1409771')
